@@ -3,11 +3,12 @@ Shader "Liam/FirstShader"
     Properties
     {
         [MainColor] _myColor("Sample Color", Color) = (1, 1, 1, 1)
+        _BaseMap("Base Map", 2D) = "White"
     }
 
     SubShader
     {
-        Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" }
+        Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalRenderPipeline" }
 
         Pass
         {
@@ -22,25 +23,41 @@ Shader "Liam/FirstShader"
             struct Attributes
             {
                 float4 positionOS : POSITION;
+                float2 uv : TEXCOORD0;
             };
 
             struct Varyings
             {
                 float4 positionHCS : SV_POSITION;
+                float2 uv : TEXCOORD0;
             };
             
-            float4 _myColor;
+            TEXTURE2D(_BaseMap);
+            SAMPLER(sampler_BaseMap);
+            
+            CBUFFER_START(UnityPerMaterial)
+            
+            
+            float4 _BaseMap_ST;
+            
+            half4 _myColor;
+            
+            CBUFFER_END
 
+            
             Varyings vert(Attributes IN)
             {
                 Varyings OUT;
                 OUT.positionHCS = TransformObjectToHClip(IN.positionOS.xyz);
+                OUT.uv = TRANSFORM_TEX(IN.uv, _BaseMap);
                 return OUT;
             }
 
             half4 frag(Varyings IN) : SV_Target
             {
-                return _myColor;
+                half4 color = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv);
+                half4 finalColor = color * _myColor;
+                return finalColor;
             }
             ENDHLSL
         }

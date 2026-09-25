@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FirstShader
-  m_Shader: {fileID: 4800000, guid: 0bace64d35017e744bedd9e9c3fb51d4, type: 3}
+  m_Name: ShaderGraphColor
+  m_Shader: {fileID: -6465566751694194690, guid: ed596023fa733fc498a9ff2e48b79ca7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -25,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 65dddfc7b4031674ba7054db594369fd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -62,6 +62,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_f1637c96a6d341b3ad6f8df241720924_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 65dddfc7b4031674ba7054db594369fd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -103,6 +107,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
@@ -119,10 +124,10 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _myColor: {r: 0.45882353, g: 0.25882354, b: 0.69411767, a: 1}
+    - _myColor: {r: 0.8301887, g: 0.12792198, b: 0.12792198, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &8944146896769612545
+--- !u!114 &1374607850825844221
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
