@@ -25,16 +25,16 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: bf448e6e7270d0745a6369640f066bdc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _RimPower: 3
-    - _RimStrength: 0.5
+    - _RimPower: 2.85
+    - _RimStrength: 0.539
     - _UVSET: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 0.23159003, g: 1, b: 0.1603772, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
