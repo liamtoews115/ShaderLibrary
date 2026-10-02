@@ -10,7 +10,7 @@ Shader "Liam/MultiUV"
 
     SubShader
     {
-        Tags { "RenderType" = "Opaque" "Queue" = "Geometry" "RenderPipeline" = "UniversalRenderPipeline" }
+        Tags { "RenderType" = "Opaque" "Queue" = "Geometry" "RenderPipeline" = "UniversalPipeline" }
 
         Pass
         {

@@ -17,7 +17,7 @@ Shader "Liam/Reflection"
 
     SubShader
     {
-        Tags { "RenderType"="Opaque" "Queue"="Geometry" "RenderPipeline"="UniversalRenderPipeline" }
+        Tags { "RenderType"="Opaque" "Queue"="Geometry" "RenderPipeline"="UniversalPipeline" }
         LOD 200
 
         Pass

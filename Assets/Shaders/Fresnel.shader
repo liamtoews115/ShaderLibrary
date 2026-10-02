@@ -1,11 +1,10 @@
-Shader "Liam/MultiUVViewDir"
+Shader "Liam/Fresnel"
 {
     Properties
     {
         [MainColor] _BaseColor("Base Color", Color) = (1, 1, 1, 1)
         [MainTexture] _BaseMap("Base Map", 2D) = "white" {}
         
-        [KeywordEnum(UV0, UV1)] _UVSET ("UV Set", Float) = 0
         
         _RimColor ("Rim Color", Color) = (1,1,1,1)
         _RimPower ("Rim Power", Range(0.5, 8)) = 3
@@ -14,7 +13,7 @@ Shader "Liam/MultiUVViewDir"
 
     SubShader
     {
-        Tags { "RenderType" = "Opaque" "Queue" = "Geometry" "RenderPipeline" = "UniversalRenderPipeline" }
+        Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" }
 
         Pass
         {
@@ -33,8 +32,7 @@ Shader "Liam/MultiUVViewDir"
             {
                 float4 positionOS : POSITION;
                 float3 normalOS : NORMAL;
-                float2 uv0 : TEXCOORD0;
-                float2 uv1 : TEXCOORD1;
+                float2 uv : TEXCOORD0;
             };
 
             struct Varyings
@@ -53,8 +51,8 @@ Shader "Liam/MultiUVViewDir"
                 half4 _BaseColor;
                 float4 _BaseMap_ST;
                 float4 _RimColor;
-                float4 _RimPower;
-                float4 _RimStrength;
+                float _RimPower;
+                float _RimStrength;
             CBUFFER_END
 
             Varyings vert(Attributes IN)
@@ -66,21 +64,17 @@ Shader "Liam/MultiUVViewDir"
                 
                 OUT.positionWS = posWS;
                 OUT.normalWS = nrmWS;
-                OUT.positionHCS = TransformObjectToHClip(posWS);
-                
-                #if defined(_UVSET_UV1)
-                    OUT.uv = TRANSFORM_TEX(IN.uv1, _BaseMap);
-                #else
-                    OUT.uv = TRANSFORM_TEX(IN.uv0, _BaseMap);
-                #endif
+                OUT.positionHCS = TransformWorldToHClip(posWS);
+                OUT.uv = TRANSFORM_TEX(IN.uv, _BaseMap);
                 
                 return OUT;
             }
 
             half4 frag(Varyings IN) : SV_Target
             {
-                half4 baseTex = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv);
+                half4 baseTex  = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv);
                 half3 color = baseTex.rgb * _BaseColor.rgb;
+                
                 
                 float3 viewDirWS = GetWorldSpaceViewDir(IN.positionWS);
                 viewDirWS = SafeNormalize(viewDirWS);

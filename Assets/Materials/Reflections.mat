@@ -24,20 +24,20 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 3, y: 3}
         m_Offset: {x: 0, y: 0}
     - _EnvCube:
-        m_Texture: {fileID: 8900000, guid: 42c8d975867dbb34299217c9b3a62677, type: 3}
+        m_Texture: {fileID: 8900000, guid: 8a293ce833d584fc98516e0e74f495a4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _EnvBlend: 1
-    - _EnvIntensity: 1
-    - _FresnelBoost: 1
-    - _FresnelPow: 5
+    - _EnvIntensity: 0.59
+    - _FresnelBoost: 0.87
+    - _FresnelPow: 5.64
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0.71383643, g: 1, b: 0.9423699, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
