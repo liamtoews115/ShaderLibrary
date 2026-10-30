@@ -6,5 +6,3 @@ I did not have any problems, nothing went wrong.
 
 No technical issues accorded during the setup besides the usual slowness of the unity launch.
 
-
-
